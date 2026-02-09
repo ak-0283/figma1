@@ -5,26 +5,30 @@ export default function Navbar({ page, setPage }) {
 
   const [menuOpen, setMenuOpen] = useState(false)
 
+  const coursesLabel = page === "courses" ? "Services" : "Courses"
+
   return (
-
-    // ⭐ FLOATING WRAPPER (MOST IMPORTANT)
-    <div className="absolute top-6 left-1/2 -translate-x-1/2 w-full flex justify-center z-50">
-
+    <>
+      {/* ✅ NAVBAR */}
       <nav className="
+        fixed
+        top-6
+        left-1/2
+        -translate-x-1/2
         w-[92%]
         max-w-7xl
-        bg-white/90
-        backdrop-blur-md
+        bg-white
         border border-gray-200
         shadow-lg
         rounded-full
         px-6
         py-3
+        z-50
       ">
 
         <div className="flex items-center justify-between">
 
-          {/* ✅ LOGO */}
+          {/* Logo */}
           <div
             className="flex items-center gap-3 cursor-pointer"
             onClick={() => setPage('home')}
@@ -39,10 +43,9 @@ export default function Navbar({ page, setPage }) {
           </div>
 
 
-          {/* ✅ DESKTOP MENU */}
-          <ul className="hidden md:flex items-center gap-8 text-gray-600 font-medium">
+          {/* Desktop */}
+          <ul className="hidden lg:flex items-center gap-8 text-gray-600 font-medium">
 
-            {/* HOME */}
             <li
               onClick={() => setPage('home')}
               className={`px-5 py-2 rounded-full cursor-pointer transition
@@ -54,8 +57,6 @@ export default function Navbar({ page, setPage }) {
               Home
             </li>
 
-
-            {/* COURSES */}
             <li
               onClick={() => setPage('courses')}
               className={`px-5 py-2 rounded-full cursor-pointer transition
@@ -64,109 +65,101 @@ export default function Navbar({ page, setPage }) {
                   : 'hover:text-orange-500'}
               `}
             >
-              Courses
+              {coursesLabel}
             </li>
 
             <li className="hover:text-orange-500 cursor-pointer">Books</li>
             <li className="hover:text-orange-500 cursor-pointer">Bookings</li>
-            <li className="hover:text-orange-500 cursor-pointerा pointer">Blogs</li>
+            <li className="hover:text-orange-500 cursor-pointer">Blogs</li>
 
           </ul>
 
 
-          {/* ✅ CONNECT BUTTON */}
-          <button className="
-            hidden md:block
-            bg-orange-500
-            text-white
-            px-6
-            py-2
-            rounded-full
-            font-medium
-            hover:bg-orange-600
-            transition
-          ">
+          {/* Connect */}
+          <button className="hidden lg:block bg-orange-500 text-white px-6 py-2 rounded-full font-medium hover:bg-orange-600 transition">
             Connect
           </button>
 
 
-          {/* ✅ MOBILE ICON */}
+          {/* Hamburger */}
           <button
             onClick={() => setMenuOpen(true)}
-            className="md:hidden text-2xl"
+            className="lg:hidden text-2xl text-gray-700"
           >
             <FiMenu />
           </button>
 
         </div>
 
+      </nav>
 
 
-        {/* ================= MOBILE MENU ================= */}
 
-        {menuOpen && (
+      {/* ✅ MOBILE MENU — OUTSIDE NAV */}
+      {menuOpen && (
 
-          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50">
+        <div className="fixed inset-0 bg-black/40 z-[999]">
 
-            <div className="
-              fixed
-              top-0 right-0
-              h-full
-              w-[280px]
-              bg-white
-              shadow-2xl
-              p-6
-            ">
+          {/* Side Drawer */}
+          <div className="
+            fixed
+            top-0
+            right-0
+            h-full
+            w-[300px]
+            bg-white
+            shadow-2xl
+            p-6
+          ">
 
-              <div className="flex justify-end mb-8">
-                <FiX
-                  onClick={() => setMenuOpen(false)}
-                  className="text-3xl cursor-pointer"
-                />
-              </div>
-
-              <ul className="flex flex-col gap-6 font-medium">
-
-                <li
-                  onClick={() => {
-                    setMenuOpen(false)
-                    setPage('home')
-                  }}
-                  className={page === 'home'
-                    ? "text-orange-500 font-semibold"
-                    : "hover:text-orange-500 cursor-pointer"}
-                >
-                  Home
-                </li>
-
-                <li
-                  onClick={() => {
-                    setMenuOpen(false)
-                    setPage('courses')
-                  }}
-                  className={page === 'courses'
-                    ? "text-orange-500 font-semibold"
-                    : "hover:text-orange-500 cursor-pointer"}
-                >
-                  Courses
-                </li>
-
-                <li className="hover:text-orange-500 cursor-pointer">Books</li>
-                <li className="hover:text-orange-500 cursor-pointer">Bookings</li>
-                <li className="hover:text-orange-500 cursor-pointer">Blogs</li>
-
-              </ul>
-
-              <button className="mt-10 w-full bg-orange-500 text-white py-3 rounded-full font-medium hover:bg-orange-600 transition">
-                Connect
-              </button>
-
+            <div className="flex justify-end mb-8">
+              <FiX
+                onClick={() => setMenuOpen(false)}
+                className="text-3xl cursor-pointer"
+              />
             </div>
 
-          </div>
-        )}
+            <ul className="flex flex-col gap-6 font-medium text-gray-700">
 
-      </nav>
-    </div>
+              <li
+                onClick={() => {
+                  setMenuOpen(false)
+                  setPage('home')
+                }}
+                className={page === 'home'
+                  ? "text-orange-500 font-semibold"
+                  : "hover:text-orange-500 cursor-pointer"}
+              >
+                Home
+              </li>
+
+              <li
+                onClick={() => {
+                  setMenuOpen(false)
+                  setPage('courses')
+                }}
+                className={page === 'courses'
+                  ? "text-orange-500 font-semibold"
+                  : "hover:text-orange-500 cursor-pointer"}
+              >
+                {coursesLabel}
+              </li>
+
+              <li className="hover:text-orange-500 cursor-pointer">Books</li>
+              <li className="hover:text-orange-500 cursor-pointer">Bookings</li>
+              <li className="hover:text-orange-500 cursor-pointer">Blogs</li>
+
+            </ul>
+
+            <button className="mt-10 w-full bg-orange-500 text-white py-3 rounded-full font-medium hover:bg-orange-600 transition">
+              Connect
+            </button>
+
+          </div>
+
+        </div>
+      )}
+
+    </>
   )
 }

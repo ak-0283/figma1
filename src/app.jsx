@@ -18,7 +18,7 @@ export default function App() {
 
   return (
 
-    <div className="min-h-screen bg-[#FFF9D9] pt-20">
+    <div className="min-h-screen bg-[#FFF9D9] pt-32">
       {/* ⭐ pt-20 = spacing for fixed navbar */}
 
       <Navbar page={page} setPage={setPage} />
