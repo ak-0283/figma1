@@ -11,6 +11,7 @@ import Chapter from './components/homepage/Chapter'
 import Community from './components/homepage/Community'
 import Footer from './components/homepage/Footer'
 import CoursesPage from './courses.jsx'
+import BooksPage from './books.jsx'
 
 export default function App() {
 
@@ -18,13 +19,12 @@ export default function App() {
 
   return (
 
-    <div className="min-h-screen bg-[#FFF9D9] pt-32">
-      {/* ⭐ pt-20 = spacing for fixed navbar */}
+    <div className="min-h-screen bg-[#FFF9D9]">
 
       <Navbar page={page} setPage={setPage} />
 
-      {page === 'home' ? (
-        <>
+      {page === 'home' && (
+        <div className="pt-32">
           <Hero />
           <Stats />
           <Services />
@@ -34,9 +34,19 @@ export default function App() {
           <Chapter />
           <Community />
           <Footer />
-        </>
-      ) : (
-        <CoursesPage />
+        </div>
+      )}
+
+      {page === 'courses' && (
+        <div className="pt-32">
+          <CoursesPage setPage={setPage} />
+        </div>
+      )}
+
+      {page === 'books' && (
+        <div className="pt-32">
+          <BooksPage setPage={setPage} />
+        </div>
       )}
 
     </div>
