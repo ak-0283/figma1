@@ -82,8 +82,8 @@ export default function Footer({ setPage }) {
               <li className="hover:text-white cursor-pointer" onClick={() => setPage && setPage('home')}>Home</li>
               <li className="hover:text-white cursor-pointer" onClick={() => setPage && setPage('books')}>Books</li>
               <li className="hover:text-white cursor-pointer" onClick={() => setPage && setPage('video')}>Videos</li>
-              <li className="hover:text-white cursor-pointer">Products</li>
-              <li className="hover:text-white cursor-pointer">Blog</li>
+              <li className="hover:text-white cursor-pointer" onClick={() => setPage && setPage('blog')}>Blogs</li>
+              <li className="hover:text-white cursor-pointer" onClick={() => setPage && setPage('product')}>Products</li>
               <li className="hover:text-white cursor-pointer">Contact</li>
             </ul>
           </div>

@@ -13,6 +13,8 @@ import Footer from './components/homepage/Footer'
 import CoursesPage from './courses.jsx'
 import BooksPage from './books.jsx'
 import VideoPage from './video.jsx'
+import BlogPage from './blog.jsx'
+import ProductPage from './product.jsx'
 
 export default function App() {
 
@@ -53,6 +55,18 @@ export default function App() {
       {page === 'video' && (
         <div className="pt-32">
           <VideoPage setPage={setPage} />
+        </div>
+      )}
+
+      {page === 'blog' && (
+        <div className="pt-32">
+          <BlogPage setPage={setPage} />
+        </div>
+      )}
+
+      {page === 'product' && (
+        <div className="pt-32">
+          <ProductPage setPage={setPage} />
         </div>
       )}
 

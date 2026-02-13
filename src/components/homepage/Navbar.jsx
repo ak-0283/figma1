@@ -89,8 +89,29 @@ export default function Navbar({ page, setPage }) {
             >
               Videos
             </li>
+
+            <li
+              onClick={() => setPage('blog')}
+              className={`px-5 py-2 rounded-full cursor-pointer transition
+                ${page === 'blog'
+                  ? 'bg-orange-500 text-white shadow'
+                  : 'hover:text-orange-500'}
+              `}
+            >
+              Blogs
+            </li>
+
+            <li
+              onClick={() => setPage('product')}
+              className={`px-5 py-2 rounded-full cursor-pointer transition
+                ${page === 'product'
+                  ? 'bg-orange-500 text-white shadow'
+                  : 'hover:text-orange-500'}
+              `}
+            >
+              Products
+            </li>
             <li className="hover:text-orange-500 cursor-pointer">Bookings</li>
-            <li className="hover:text-orange-500 cursor-pointer">Blogs</li>
 
           </ul>
 
@@ -188,8 +209,31 @@ export default function Navbar({ page, setPage }) {
               >
                 Videos
               </li>
+
+              <li
+                onClick={() => {
+                  setMenuOpen(false)
+                  setPage('blog')
+                }}
+                className={page === 'blog'
+                  ? "text-orange-500 font-semibold"
+                  : "hover:text-orange-500 cursor-pointer"}
+              >
+                Blogs
+              </li>
+
+              <li
+                onClick={() => {
+                  setMenuOpen(false)
+                  setPage('product')
+                }}
+                className={page === 'product'
+                  ? "text-orange-500 font-semibold"
+                  : "hover:text-orange-500 cursor-pointer"}
+              >
+                Products
+              </li>
               <li className="hover:text-orange-500 cursor-pointer">Bookings</li>
-              <li className="hover:text-orange-500 cursor-pointer">Blogs</li>
 
             </ul>
 
