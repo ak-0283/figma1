@@ -12,6 +12,7 @@ import Community from './components/homepage/Community'
 import Footer from './components/homepage/Footer'
 import CoursesPage from './courses.jsx'
 import BooksPage from './books.jsx'
+import VideoPage from './video.jsx'
 
 export default function App() {
 
@@ -33,7 +34,7 @@ export default function App() {
           <Courses />
           <Chapter />
           <Community />
-          <Footer />
+          <Footer setPage={setPage} />
         </div>
       )}
 
@@ -46,6 +47,12 @@ export default function App() {
       {page === 'books' && (
         <div className="pt-32">
           <BooksPage setPage={setPage} />
+        </div>
+      )}
+
+      {page === 'video' && (
+        <div className="pt-32">
+          <VideoPage setPage={setPage} />
         </div>
       )}
 

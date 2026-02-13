@@ -1,6 +1,6 @@
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa"
 
-export default function Footer() {
+export default function Footer({ setPage }) {
   return (
     <footer>
       {/* ================= MAIN FOOTER ================= */}
@@ -51,8 +51,9 @@ export default function Footer() {
             </h4>
 
             <ul className="space-y-2 text-orange-100">
-              <li className="hover:text-white cursor-pointer">Home</li>
-              <li className="hover:text-white cursor-pointer">Books</li>
+              <li className="hover:text-white cursor-pointer" onClick={() => setPage && setPage('home')}>Home</li>
+              <li className="hover:text-white cursor-pointer" onClick={() => setPage && setPage('books')}>Books</li>
+              <li className="hover:text-white cursor-pointer" onClick={() => setPage && setPage('video')}>Videos</li>
               <li className="hover:text-white cursor-pointer">Products</li>
               <li className="hover:text-white cursor-pointer">Blog</li>
               <li className="hover:text-white cursor-pointer">Contact</li>

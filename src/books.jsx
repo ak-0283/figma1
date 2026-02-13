@@ -9,7 +9,7 @@ export default function BooksPage({ setPage }) {
       <BookHeroSection />
       <MoreBooksSection />
       <RecognitionSection />
-      <Footer />
+      <Footer setPage={setPage} />
     </>
   )
 }

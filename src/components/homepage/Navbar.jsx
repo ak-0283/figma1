@@ -78,6 +78,17 @@ export default function Navbar({ page, setPage }) {
             >
               Books
             </li>
+
+            <li
+              onClick={() => setPage('video')}
+              className={`px-5 py-2 rounded-full cursor-pointer transition
+                ${page === 'video'
+                  ? 'bg-orange-500 text-white shadow'
+                  : 'hover:text-orange-500'}
+              `}
+            >
+              Videos
+            </li>
             <li className="hover:text-orange-500 cursor-pointer">Bookings</li>
             <li className="hover:text-orange-500 cursor-pointer">Blogs</li>
 
@@ -164,6 +175,18 @@ export default function Navbar({ page, setPage }) {
                   : "hover:text-orange-500 cursor-pointer"}
               >
                 Books
+              </li>
+
+              <li
+                onClick={() => {
+                  setMenuOpen(false)
+                  setPage('video')
+                }}
+                className={page === 'video'
+                  ? "text-orange-500 font-semibold"
+                  : "hover:text-orange-500 cursor-pointer"}
+              >
+                Videos
               </li>
               <li className="hover:text-orange-500 cursor-pointer">Bookings</li>
               <li className="hover:text-orange-500 cursor-pointer">Blogs</li>

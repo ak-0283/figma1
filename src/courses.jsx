@@ -13,7 +13,7 @@ export default function Courses({ setPage }) {
       <AdvancedPathways />
       <Choose />
       <Speaking />
-      <Footer />
+      <Footer setPage={setPage} />
     </>
   )
 }
